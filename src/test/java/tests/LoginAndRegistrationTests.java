@@ -2,17 +2,26 @@ package tests;
 
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.AdvancedPage;
 import pages.HomePage;
 import pages.LoginAndRegistrationPage;
 
+import static pages.BasePage.driver;
+
 /**
  * All possible tests for user Registration
  */
 public class LoginAndRegistrationTests {
 
+
+    @AfterMethod
+    public void closeBrowser() {
+        driver.quit();
+
+    }
 
     @Test
     public void registrationWithEmptyFieldsTest() {
